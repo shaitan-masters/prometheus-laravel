@@ -1,9 +1,11 @@
 <?php
 
-namespace Mojam\Prometheus;
+namespace Mojam\Prometheus\Collectors;
 
 use InvalidArgumentException;
 use Illuminate\Support\Str;
+use Mojam\Prometheus\Storage\Adapter;
+use Mojam\Prometheus\Storage\StorageFactory;
 
 abstract class Collector
 {
@@ -21,8 +23,9 @@ abstract class Collector
 
     protected array $labelsValues = [];
 
-    public function __construct(StorageFactory $storageFactory)
+    public function __construct()
     {
+        $storageFactory = new StorageFactory();
         $this->storageAdapter = $storageFactory->getAdapter();
     }
 

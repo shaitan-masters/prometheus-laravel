@@ -1,6 +1,6 @@
 <?php
 
-namespace Mojam\Prometheus;
+namespace Mojam\Prometheus\Dto;
 
 class MetricCollection
 {

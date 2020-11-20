@@ -1,6 +1,6 @@
 <?php
 
-namespace Mojam\Prometheus;
+namespace Mojam\Prometheus\Http;
 
 use Closure;
 use Illuminate\Http\Response;
@@ -25,7 +25,7 @@ class SecurityMiddleware
             abort(Response::HTTP_UNAUTHORIZED);
         }
 
-        $apiKey = config('prometheus.apiKey');
+        $apiKey = config('prometheus_exporter.apiKey');
 
         if ($secret !== $apiKey) {
             abort(Response::HTTP_UNAUTHORIZED);

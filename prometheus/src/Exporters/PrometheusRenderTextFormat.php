@@ -1,6 +1,9 @@
 <?php
 
-namespace Mojam\Prometheus;
+namespace Mojam\Prometheus\Exporters;
+
+use Mojam\Prometheus\Dto\Metric;
+use Mojam\Prometheus\Dto\MetricCollection;
 
 class PrometheusRenderTextFormat
 {

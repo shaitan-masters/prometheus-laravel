@@ -9,20 +9,13 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Mojam\\Prometheus\\": "packages/mojam/prometheus",
-            "App\\": "app/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Mojam\\Prometheus\\": "packages/mojam/prometheus",
-            "Tests\\": "tests/"
+            "Mojam\\Prometheus\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "mojam\\prometheus\\PrometheusServiceProvider"
+                "Mojam\\Prmotheus\\PrometheusServiceProvider"
             ]
         }
     }

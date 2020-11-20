@@ -1,10 +1,11 @@
 <?php
 
-namespace Mojam\Prometheus;
+namespace Mojam\Prometheus\Http;
 
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Response;
+use Mojam\Prometheus\Exporters\PrometheusExporter;
 
 class MetricsController extends Controller
 {

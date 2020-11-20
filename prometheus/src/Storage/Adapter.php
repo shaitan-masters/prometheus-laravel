@@ -1,6 +1,8 @@
 <?php
 
-namespace Mojam\Prometheus;
+namespace Mojam\Prometheus\Storage;
+
+use Mojam\Prometheus\Collectors\Counter;
 
 interface Adapter
 {

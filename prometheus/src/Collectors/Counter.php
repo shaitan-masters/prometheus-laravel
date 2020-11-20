@@ -1,6 +1,8 @@
 <?php
 
-namespace Mojam\Prometheus;
+namespace Mojam\Prometheus\Collectors;
+
+use Mojam\Prometheus\Storage\Adapter;
 
 class Counter extends Collector
 {

@@ -1,6 +1,9 @@
 <?php
 
-namespace Mojam\Prometheus;
+namespace Mojam\Prometheus\Exporters;
+
+use Mojam\Prometheus\Storage\Adapter;
+use Mojam\Prometheus\Storage\StorageFactory;
 
 class PrometheusExporter
 {

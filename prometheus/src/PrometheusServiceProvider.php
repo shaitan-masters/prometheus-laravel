@@ -50,6 +50,7 @@ class PrometheusServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
         $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'prometheus_exporter');
 
     }
