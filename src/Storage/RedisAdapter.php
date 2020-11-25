@@ -1,12 +1,12 @@
 <?php
 
-namespace Mojam\Prometheus\Storage;
+namespace Valentin\Mojam\Storage;
 
 use Illuminate\Redis\Connections\Connection;
 use InvalidArgumentException;
 use JsonException;
-use Mojam\Prometheus\Collectors\Counter;
-use Mojam\Prometheus\Dto\MetricCollection;
+use Valentin\Mojam\Collectors\Counter;
+use Valentin\Mojam\Dto\MetricCollection;
 
 class RedisAdapter implements Adapter
 {

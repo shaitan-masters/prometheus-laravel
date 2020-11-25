@@ -1,9 +1,9 @@
 <?php
 
-namespace Mojam\Prometheus\Exporters;
+namespace Valentin\Mojam\Exporters;
 
-use Mojam\Prometheus\Storage\Adapter;
-use Mojam\Prometheus\Storage\StorageFactory;
+use Valentin\Mojam\Storage\Adapter;
+use Valentin\Mojam\Storage\StorageFactory;
 
 class PrometheusExporter
 {

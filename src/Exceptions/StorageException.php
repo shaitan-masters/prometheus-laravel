@@ -1,6 +1,6 @@
 <?php
 
-namespace Mojam\Prometheus\Exceptions;
+namespace Valentin\Mojam\Exceptions;
 
 use Exception;
 

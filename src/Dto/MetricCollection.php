@@ -1,6 +1,6 @@
 <?php
 
-namespace Mojam\Prometheus\Dto;
+namespace Valentin\Mojam\Dto;
 
 class MetricCollection
 {

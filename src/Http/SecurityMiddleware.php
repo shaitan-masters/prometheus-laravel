@@ -1,6 +1,6 @@
 <?php
 
-namespace Mojam\Prometheus\Http;
+namespace Valentin\Mojam\Http;
 
 use Closure;
 use Illuminate\Http\Response;
