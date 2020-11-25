@@ -1,13 +1,11 @@
 <?php
 
 
-namespace Mojam\Prometheus;
+namespace Valentin\Mojam\Prometheus;
 
 
 use Illuminate\Foundation\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
-use Prometheus\CollectorRegistry;
-use traumferienwohnungen\PrometheusExporter\Middleware\LaravelResponseTimeMiddleware;
 
 class PrometheusServiceProvider extends ServiceProvider
 {
