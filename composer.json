@@ -11,12 +11,5 @@
         "psr-4": {
             "Mojam\\Prometheus\\": "src/"
         }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Mojam\\Prmotheus\\PrometheusServiceProvider"
-            ]
-        }
     }
 }
