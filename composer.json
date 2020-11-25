@@ -9,7 +9,14 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Mojam\\Prometheus\\": "src/"
+            "Valentin\\Mojam\\Prometheus\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Valentin\\Mojam\\Prmotheus\\PrometheusServiceProvider"
+            ]
         }
     }
 }

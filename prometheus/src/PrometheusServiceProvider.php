@@ -9,10 +9,6 @@ use Illuminate\Support\ServiceProvider;
 use Prometheus\CollectorRegistry;
 use traumferienwohnungen\PrometheusExporter\Middleware\LaravelResponseTimeMiddleware;
 
-/**
- * Class LaravelServiceProvider
- * @package traumferienwohnungen\PrometheusExporter
- */
 class PrometheusServiceProvider extends ServiceProvider
 {
     /**
