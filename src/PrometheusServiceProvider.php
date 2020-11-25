@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Valentin\Mojam\Prometheus;
+namespace Valentin\Mojam;
 
 
 use Illuminate\Foundation\Http\Kernel;
