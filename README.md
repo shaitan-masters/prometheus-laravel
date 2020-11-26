@@ -1,8 +1,7 @@
 
 ## Configuration
 
-php artisan vendor:publish --provider="Mojam\Prometheus\PrometheusServiceProvider"
-
+php artisan vendor:publish --provider="Valentin\Mojam\PrometheusServiceProvider"
 
 ## Usage
 
