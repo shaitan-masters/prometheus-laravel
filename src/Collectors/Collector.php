@@ -13,7 +13,7 @@ abstract class Collector
 
     protected Adapter $storageAdapter;
 
-    protected string $namespace = '';
+    protected string $namespace;
 
     protected string $name;
 
@@ -36,6 +36,7 @@ abstract class Collector
 
     public function setName(string $name): void
     {
+        $this->namespace = $this->namespace ? $this->namespace . '_' : '';
         $metricName = Str::snake($this->namespace . $name);
 
         if (!preg_match(self::RE_METRIC_LABEL_NAME, $metricName)) {
