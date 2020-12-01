@@ -1,6 +1,6 @@
 <?php
 
-namespace Valentin\Mojam\Storage;
+namespace ShaitanMasters\Prometheus\Storage;
 
 use Illuminate\Support\Facades\Redis;
 

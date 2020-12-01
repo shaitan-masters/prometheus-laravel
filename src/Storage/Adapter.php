@@ -1,8 +1,8 @@
 <?php
 
-namespace Valentin\Mojam\Storage;
+namespace ShaitanMasters\Prometheus\Storage;
 
-use Valentin\Mojam\Collectors\Counter;
+use ShaitanMasters\Prometheus\Collectors\Counter;
 
 interface Adapter
 {

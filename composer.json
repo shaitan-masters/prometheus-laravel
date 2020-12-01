@@ -1,21 +1,32 @@
 {
-    "name": "valentin/mojam",
+    "name": "shaitan-masters/prometheus-laravel",
+    "description": "Prometheus integration with Laravel Framework",
+    "keywords": [
+        "shaitan-masters",
+        "laravel",
+        "statistics",
+        "prometheus-laravel"
+    ],
+    "homepage": "https://github.com/shaitan-masters/prometheus-laravel",
+    "license": "MIT",
     "authors": [
         {
             "name": "Valentin",
             "email": "valentinkh1@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=7.3"
+    },
     "autoload": {
         "psr-4": {
-            "Valentin\\Mojam\\": "src/"
+            "ShaitanMasters\\Prometheus\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Valentin\\Mojam\\PrometheusServiceProvider"
+                "ShaitanMasters\\Prometheus\\PrometheusServiceProvider"
             ]
         }
     }

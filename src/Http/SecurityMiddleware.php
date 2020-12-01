@@ -1,6 +1,6 @@
 <?php
 
-namespace Valentin\Mojam\Http;
+namespace ShaitanMasters\Prometheus\Http;
 
 use Closure;
 use Illuminate\Http\Response;
