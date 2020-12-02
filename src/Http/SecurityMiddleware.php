@@ -19,23 +19,21 @@ class SecurityMiddleware
      */
     public function handle(Request $request, Closure $next, $guard = null)
     {
+        $shouldBeUsed = config('prometheus.use_security_middleware', false);
 
-        $useMiddleware = config('use_default_security_middleware');
-
-        if (!$useMiddleware) {
-
+        if (!$shouldBeUsed) {
             return $next($request);
         }
 
-        $token = $request->bearerToken();
+        $bearerToken = $request->bearerToken();
 
-        if ($token === null) {
+        if ($bearerToken === null) {
             abort(Response::HTTP_UNAUTHORIZED);
         }
 
-        $apiKey = config('prometheus_exporter.api_token');
+        $apiToken = config('prometheus.api_token', '');
 
-        if ($token !== $apiKey) {
+        if ($bearerToken !== $apiToken) {
             abort(Response::HTTP_UNAUTHORIZED);
         }
 

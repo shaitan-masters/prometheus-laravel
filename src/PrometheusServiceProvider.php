@@ -18,14 +18,14 @@ class PrometheusServiceProvider extends ServiceProvider
     public function boot(Kernel $kernel)
     {
         $source = realpath(__DIR__ . '/config/config.php');
-        $this->publishes([$source => config_path('prometheus_exporter.php')]);
+        $this->publishes([$source => config_path('prometheus.php')]);
 
         $this->registerMetricsRoute();
     }
 
     public function config($key, $default = null)
     {
-        return config("prometheus_exporter.$key", $default);
+        return config("prometheus.$key", $default);
     }
 
     public function getConfigInstance($key)
@@ -44,9 +44,7 @@ class PrometheusServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
-        $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'prometheus_exporter');
-
+        $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'prometheus');
     }
 
     public function registerMetricsRoute()
