@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Valentin\Mojam\Http\MetricsController;
-use Valentin\Mojam\Http\SecurityMiddleware;
+use ShaitanMasters\Prometheus\Http\MetricsController;
+use ShaitanMasters\Prometheus\Http\SecurityMiddleware;
 
 Route::middleware(SecurityMiddleware::class)->group(function () {
-    Route::get('metrics', MetricsController::class);
+    $uri = config('prometheus.route_uri');
+    Route::get($uri, MetricsController::class);
 });

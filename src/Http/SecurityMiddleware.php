@@ -1,6 +1,6 @@
 <?php
 
-namespace Valentin\Mojam\Http;
+namespace ShaitanMasters\Prometheus\Http;
 
 use Closure;
 use Illuminate\Http\Response;
@@ -12,22 +12,28 @@ class SecurityMiddleware
      * Handle an incoming request.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
-     * @param mixed|null               $guard
+     * @param \Closure $next
+     * @param mixed|null $guard
      *
      * @return mixed
      */
     public function handle(Request $request, Closure $next, $guard = null)
     {
-        $secret = $request->get('secret');
+        $shouldBeUsed = config('prometheus.use_security_middleware', false);
 
-        if (!$secret) {
+        if (!$shouldBeUsed) {
+            return $next($request);
+        }
+
+        $bearerToken = $request->bearerToken();
+
+        if ($bearerToken === null) {
             abort(Response::HTTP_UNAUTHORIZED);
         }
 
-        $apiKey = config('prometheus_exporter.apiKey');
+        $apiToken = config('prometheus.api_token', '');
 
-        if ($secret !== $apiKey) {
+        if ($bearerToken !== $apiToken) {
             abort(Response::HTTP_UNAUTHORIZED);
         }
 

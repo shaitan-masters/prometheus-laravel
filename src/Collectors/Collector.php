@@ -1,11 +1,11 @@
 <?php
 
-namespace Valentin\Mojam\Collectors;
+namespace ShaitanMasters\Prometheus\Collectors;
 
 use InvalidArgumentException;
 use Illuminate\Support\Str;
-use Valentin\Mojam\Storage\Adapter;
-use Valentin\Mojam\Storage\StorageFactory;
+use ShaitanMasters\Prometheus\Storage\Adapter;
+use ShaitanMasters\Prometheus\Storage\StorageFactory;
 
 abstract class Collector
 {

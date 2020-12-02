@@ -1,7 +1,12 @@
 <?php
 return [
-
-
+    /*
+    |--------------------------------------------------------------------------
+    | Redis connection
+    |--------------------------------------------------------------------------
+    |
+    | Redis connection params
+    */
     'redis' => [
             'url' => '',
             'host' =>  '127.0.0.1',
@@ -10,5 +15,32 @@ return [
             'database' =>  '2',
     ],
 
-    'apiKey' => 'prometheus-api-key-put-here'
+    /*
+    |--------------------------------------------------------------------------
+    | Route URI for prometheus
+    |--------------------------------------------------------------------------
+    |
+    | This route is used by prometheus to grab metrics
+    */
+    'route_uri' => 'metrics',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Security middleware
+    |--------------------------------------------------------------------------
+    |
+    | Do you want to use security middleware
+    | default: false
+    */
+    'use_security_middleware' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | API token
+    |--------------------------------------------------------------------------
+    |
+    | This token is used by prometheus to secure
+    | Bearer Token auth
+    */
+    'api_token' => 'prometheus-api-key-put-here'
 ];

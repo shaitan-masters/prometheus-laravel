@@ -1,11 +1,11 @@
 <?php
 
-namespace Valentin\Mojam\Exporters;
+namespace ShaitanMasters\Prometheus\Exporters;
 
-use Valentin\Mojam\Dto\Metric;
-use Valentin\Mojam\Dto\MetricCollection;
+use ShaitanMasters\Prometheus\Dto\Metric;
+use ShaitanMasters\Prometheus\Dto\MetricCollection;
 
-class PrometheusRenderTextFormat
+class PrometheusTextFormatter
 {
     public function render(array $metrics): string
     {

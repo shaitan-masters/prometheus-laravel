@@ -1,6 +1,6 @@
 <?php
 
-namespace Valentin\Mojam\Dto;
+namespace ShaitanMasters\Prometheus\Dto;
 
 class MetricCollection
 {

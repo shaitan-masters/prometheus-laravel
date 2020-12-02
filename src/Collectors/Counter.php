@@ -1,8 +1,8 @@
 <?php
 
-namespace Valentin\Mojam\Collectors;
+namespace ShaitanMasters\Prometheus\Collectors;
 
-use Valentin\Mojam\Storage\Adapter;
+use ShaitanMasters\Prometheus\Storage\Adapter;
 
 class Counter extends Collector
 {
