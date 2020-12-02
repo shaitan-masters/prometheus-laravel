@@ -10,18 +10,18 @@ class PrometheusExporter
     public const MIME_TYPE = 'text/plain; version=0.0.4';
 
     private Adapter $storageAdapter;
-    private PrometheusRenderTextFormat $reproducer;
+    private PrometheusTextFormatter $formatter;
 
-    public function __construct(StorageFactory $storageFactory, PrometheusRenderTextFormat $reproducer)
+    public function __construct(StorageFactory $storageFactory, PrometheusTextFormatter $formatter)
     {
         $this->storageAdapter = $storageFactory->getAdapter();
-        $this->reproducer = $reproducer;
+        $this->formatter = $formatter;
     }
 
     public function export(): string
     {
         $metrics = $this->storageAdapter->collect();
 
-        return $this->reproducer->render($metrics);
+        return $this->formatter->render($metrics);
     }
 }

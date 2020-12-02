@@ -12,22 +12,30 @@ class SecurityMiddleware
      * Handle an incoming request.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
-     * @param mixed|null               $guard
+     * @param \Closure $next
+     * @param mixed|null $guard
      *
      * @return mixed
      */
     public function handle(Request $request, Closure $next, $guard = null)
     {
-        $secret = $request->get('secret');
 
-        if (!$secret) {
+        $useMiddleware = config('use_default_security_middleware');
+
+        if (!$useMiddleware) {
+
+            return $next($request);
+        }
+
+        $token = $request->bearerToken();
+
+        if ($token === null) {
             abort(Response::HTTP_UNAUTHORIZED);
         }
 
-        $apiKey = config('prometheus_exporter.apiKey');
+        $apiKey = config('prometheus_exporter.api_token');
 
-        if ($secret !== $apiKey) {
+        if ($token !== $apiKey) {
             abort(Response::HTTP_UNAUTHORIZED);
         }
 

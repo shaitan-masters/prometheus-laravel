@@ -5,7 +5,7 @@ namespace ShaitanMasters\Prometheus\Exporters;
 use ShaitanMasters\Prometheus\Dto\Metric;
 use ShaitanMasters\Prometheus\Dto\MetricCollection;
 
-class PrometheusRenderTextFormat
+class PrometheusTextFormatter
 {
     public function render(array $metrics): string
     {

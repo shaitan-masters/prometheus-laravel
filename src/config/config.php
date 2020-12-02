@@ -8,7 +8,11 @@ return [
             'database' =>  '2',
     ],
 
-    'apiKey' => 'prometheus-api-key-put-here'
+    'route' => 'metrics',
+
+    'use_default_security_middleware' => true,
+
+    'api_token' => 'prometheus-api-key-put-here'
 
 
 

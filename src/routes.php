@@ -5,5 +5,6 @@ use ShaitanMasters\Prometheus\Http\MetricsController;
 use ShaitanMasters\Prometheus\Http\SecurityMiddleware;
 
 Route::middleware(SecurityMiddleware::class)->group(function () {
-    Route::get('metrics', MetricsController::class);
+    $route = config('prometheus_exporter.route');
+    Route::get($route, MetricsController::class);
 });

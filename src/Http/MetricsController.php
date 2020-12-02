@@ -19,27 +19,10 @@ class MetricsController extends Controller
         $this->exporter = $exporter;
     }
 
-    /**
-     * Get Prometheus data.
-     *
-     * @return Response
-     *
-     * @OA\Get (
-     *      path="/prometheus/metrics",
-     *      tags={"Prometheus"},
-     *      summary="Prometheus endpoint .",
-     *      operationId="prometheus",
-     *
-     *      @OA\Response (
-     *          response=200,
-     *          description="HTTP 200 OK",
-     *      ),
-     *  )
-     */
     public function __invoke(): Response
     {
         $metrics = $this->exporter->export();
 
-        return $this->responseFactory->make($metrics, 200, ['Content-Type' => PrometheusExporter::MIME_TYPE]);
+        return $this->responseFactory->make($metrics, Response::HTTP_OK, ['Content-Type' => PrometheusExporter::MIME_TYPE]);
     }
 }
