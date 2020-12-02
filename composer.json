@@ -1,5 +1,5 @@
 {
-    "name": "shaitan-masters/prometheus-laravel",
+    "name": "shaitan-masters/prometheus",
     "description": "Prometheus integration with Laravel Framework",
     "keywords": [
         "shaitan-masters",
@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": ">=7.3"
+        "php": ">=7.4"
     },
     "autoload": {
         "psr-4": {
