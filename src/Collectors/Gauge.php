@@ -11,7 +11,7 @@ class Gauge extends Collector
 
     public function set(float $value): void
     {
-        $data = $this->storageAdapter->prepareGaugeData($this, $value,Adapter::COMMAND_SET);
+        $data = $this->storageAdapter->prepareGaugeData($this, $value, Adapter::COMMAND_SET);
         $this->storageAdapter->updateGauge($data);
     }
 
@@ -27,7 +27,7 @@ class Gauge extends Collector
 
     public function incBy(float $value): void
     {
-        $data = $this->storageAdapter->prepareGaugeData($this, $value,Adapter::COMMAND_INCREMENT_FLOAT);
+        $data = $this->storageAdapter->prepareGaugeData($this, $value, Adapter::COMMAND_INCREMENT_FLOAT);
         $this->storageAdapter->updateGauge($data);
     }
 

@@ -1,7 +1,13 @@
+##Prometheus Exporter for Laravel
+Add endpoint to export simple metrics such as Counter and Gouge.
 
-## Configuration
+##Installation
 
-php artisan vendor:publish --provider="Valentin\Mojam\PrometheusServiceProvider"
+Add to composer
+
+Publish config file
+
+php artisan vendor:publish --provider="ShaitanMasters\Prometheus\PrometheusServiceProvider"
 
 ## Usage
 
