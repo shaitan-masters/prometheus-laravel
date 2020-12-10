@@ -1,85 +1,44 @@
 <?php
 
 
-namespace Mojam\Prometheus\Collectors;
+namespace ShaitanMasters\Prometheus\Collectors;
 
+use ShaitanMasters\Prometheus\Storage\Adapter;
 
 class Gauge extends Collector
 {
-    const TYPE = 'gauge';
+    public const TYPE = 'gauge';
 
-    /**
-     * @param double $value e.g. 123
-     * @param string[] $labels e.g. ['status', 'opcode']
-     */
-    public function set(float $value, array $labels = []): void
+    public function set(float $value): void
     {
-        $this->assertLabelsAreDefinedCorrectly($labels);
-
-        $this->storageAdapter->updateGauge(
-            [
-                'name' => $this->getName(),
-                'help' => $this->getHelp(),
-                'type' => $this->getType(),
-                'labelNames' => $this->getLabelNames(),
-                'labelValues' => $labels,
-                'value' => $value,
-                'command' => Adapter::COMMAND_SET,
-            ]
-        );
+        $data = $this->storageAdapter->prepareGaugeData($this, $value,Adapter::COMMAND_SET);
+        $this->storageAdapter->updateGauge($data);
     }
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return self::TYPE;
     }
 
-    /**
-     * @param string[] $labels
-     */
-    public function inc(array $labels = []): void
+    public function inc(): void
     {
-        $this->incBy(1, $labels);
+        $this->incBy(1);
     }
 
-    /**
-     * @param int|float $value
-     * @param string[] $labels
-     */
-    public function incBy($value, array $labels = []): void
+    public function incBy(float $value): void
     {
-        $this->assertLabelsAreDefinedCorrectly($labels);
-
-        $this->storageAdapter->updateGauge(
-            [
-                'name' => $this->getName(),
-                'help' => $this->getHelp(),
-                'type' => $this->getType(),
-                'labelNames' => $this->getLabelNames(),
-                'labelValues' => $labels,
-                'value' => $value,
-                'command' => Adapter::COMMAND_INCREMENT_FLOAT,
-            ]
-        );
+        $data = $this->storageAdapter->prepareGaugeData($this, $value,Adapter::COMMAND_INCREMENT_FLOAT);
+        $this->storageAdapter->updateGauge($data);
     }
 
-    /**
-     * @param string[] $labels
-     */
-    public function dec(array $labels = []): void
+
+    public function dec(): void
     {
-        $this->decBy(1, $labels);
+        $this->decBy(1);
     }
 
-    /**
-     * @param int $value
-     * @param string[] $labels
-     */
-    public function decBy(int $value, array $labels = []): void
+    public function decBy(float $value): void
     {
-        $this->incBy(-$value, $labels);
+        $this->incBy(-$value);
     }
 }
