@@ -1,6 +1,5 @@
 <?php
 
-
 namespace ShaitanMasters\Prometheus\Collectors;
 
 use ShaitanMasters\Prometheus\Storage\Adapter;
@@ -30,7 +29,6 @@ class Gauge extends Collector
         $data = $this->storageAdapter->prepareGaugeData($this, $value, Adapter::COMMAND_INCREMENT_FLOAT);
         $this->storageAdapter->updateGauge($data);
     }
-
 
     public function dec(): void
     {
