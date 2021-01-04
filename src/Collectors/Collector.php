@@ -13,7 +13,7 @@ abstract class Collector
 
     protected Adapter $storageAdapter;
 
-    protected string $namespace;
+    protected ?string $namespace = null;
 
     protected string $name;
 
