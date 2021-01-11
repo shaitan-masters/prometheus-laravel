@@ -176,16 +176,20 @@ LUA
 
             $metricKey = str_replace($this->redis->_prefix(''), '', $key);
 
-            $raw = $this->redis->hGetAll($metricKey);
+            $this->redis->multi();
+            $this->redis->hGetAll($metricKey);
 
-            $this->updateGauge([
-                'metric_key' => $metricKey,
-                'general_key' => $generalKey,
-                'command' => 'hSet',
-                'labelValues' => [],
-                'value' => 0,
-                'meta_data' => []
-            ]);
+            if(in_array($metricKey, config('prometheus.metrics_to_delete'), true)) {
+                $this->redis->srem($generalKey, $metricKey);
+                $this->redis->del($metricKey);
+            }
+
+            $raw = $this->redis->exec();
+            $raw = $raw[0];
+
+            if (!isset($raw['__meta'])) {
+                continue;
+            }
 
             $gauge = json_decode($raw['__meta'], true, 512, JSON_THROW_ON_ERROR);
             unset($raw['__meta']);

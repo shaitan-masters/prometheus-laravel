@@ -42,5 +42,14 @@ return [
     | This token is used by prometheus to secure
     | Bearer Token auth
     */
-    'api_token' => 'prometheus-api-key-put-here'
+    'api_token' => 'prometheus-api-key-put-here',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Delete metrics after scrap
+    |--------------------------------------------------------------------------
+    |
+    | Metrics from this array will be deleted from the redis after the scrap
+    */
+    'metrics_to_delete' => []
 ];
