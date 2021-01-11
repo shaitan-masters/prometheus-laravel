@@ -51,5 +51,8 @@ return [
     |
     | Metrics from this array will be deleted from the redis after the scrap
     */
-    'metrics_to_delete' => []
+    'metrics_to_delete' => [
+        'first_metric_name',
+        'another_metric_name'
+    ]
 ];
