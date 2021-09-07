@@ -24,14 +24,10 @@ class Gauge extends Collector
         $this->incBy(1);
     }
 
-    public function incBy(int $value): void
+    public function incBy($value): void
     {
-        $data = $this->storageAdapter->prepareGaugeData($this, $value, Adapter::COMMAND_INCREMENT_INTEGER);
-        $this->storageAdapter->updateGauge($data);
-    }
+        $value = (float)$value;
 
-    public function incByFloat(float $value): void
-    {
         $data = $this->storageAdapter->prepareGaugeData($this, $value, Adapter::COMMAND_INCREMENT_FLOAT);
         $this->storageAdapter->updateGauge($data);
     }
