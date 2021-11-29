@@ -46,11 +46,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Delete metrics after scrap
+    | Do not delete metrics after scrap
     |--------------------------------------------------------------------------
     |
-    | Metrics from this array will be deleted from the redis after the scrap
-    | Example: 'metrics_to_delete' => ['first_metric_name', 'another_metric_name']
+    | Metrics from this array do not deleted from the redis after the scrap
+    | Example: 'metrics_do_not_delete' => ['first_metric_name', 'another_metric_name']
     */
-    'metrics_to_delete' => []
+    'metrics_do_not_delete' => []
 ];
