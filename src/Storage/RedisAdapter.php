@@ -179,8 +179,7 @@ LUA
             $this->redis->multi();
             $this->redis->hGetAll($metricKey);
 
-            if (!in_array($metricKey, config('prometheus.metrics_do_not_delete', []), true))
-            {
+            if (!in_array($metricKey, config('prometheus.metrics_do_not_delete', []), true)) {
                 $this->redis->srem($generalKey, $metricKey);
                 $this->redis->del($metricKey);
             }
